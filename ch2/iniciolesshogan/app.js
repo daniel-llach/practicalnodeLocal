@@ -2,6 +2,7 @@ var express = require('express');
 
 var http = require('http');
 var path = require('path');
+var hogan = require("hogan");
 
 var app = express();
 
@@ -20,8 +21,8 @@ http.createServer(app).listen(app.get('port'), function(){
 
 
 
-// require hogan
-var hogan = require("hogan.js");
+
+
  
 // compile template
 var template = hogan.compile("@{{name}}");
