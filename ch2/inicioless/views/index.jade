@@ -4,22 +4,18 @@ p= msg
 script(type='text/javascript').
 	console.log('que pasa con jade + mustache?')
 
-	var data, template, html;
+	var sys = require('sys');
+	var mustache = require('mustache');
 
-	data = {
-		name: "Amigos",
-		sites: ["Familiares-friends", "facebook-friends", "colegio-friends"],
-		url: function(){
-			return function(text, render){
-				text = render(text);
-				var url = text.trim().toLowerCase().split('-friends')[0] + '/amigos.com';
-				return '<a href="' + url + '">' + text + '</a>';
-			}
-		}
+	var view = {
+	  title: "Joe",
+	  calc: function() {
+	    return 2 + 4;
+	  }
 	};
 
-	template = "<h1> {{name}} </h1> <ul> {{#sites}} <li> {{#url}} {{.}} {{/url}} </li> {{/sites}} </ul>";
+	var template = "{{title}} spends {{calc}}";
 
-	html = Mustache.to_html(template, data);
+	var html = mustache.to_html(template, view);
 
-	document.write(html);
+	sys.puts(html); 
