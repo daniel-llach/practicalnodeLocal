@@ -27,7 +27,7 @@ npm install -g node-inspector
 ```
 npm install -g express-generator@4.0.0
 ```
-5.- instalar modulo de instalación del express.js
+5-A.- instalar modulo de instalación del express.js (BASICO, ver 5-B para algo más robusto)
 > en la carpeta donde se desea instalar hay que crear un json de configuración que detalle las dependencias, en este caso sólo express versión 4.1.2.
 ```
 {
@@ -50,7 +50,7 @@ npm install -g express-generator@4.0.0
 npm install
 ```
 
-6.- scaffolding (instalar más cosas desde express)
+6-A.- scaffolding (instalar más elementos desde express)
 > instalar less
 ```
 express -c less expres-less
@@ -61,6 +61,11 @@ cd expres-less && npm install
 DEBUG=my-application ./bin/www
 ```
 
+5-B.- más ROBUSTO y sin scaffolding (instalación manual de los elementos)
+SETEAR carpetas del proyecto:
+```
+mkdir {public,public/css,public/img,public/js,db,views,views/includes,routes}
+```
 
 
 # CH1
@@ -93,3 +98,39 @@ las opciones que da son:
  2. -H | hogan.js
  3. -c | css engine, less, stylus o compass, por defecto css plano
  4. -f | fuerza app generation en una carpeta no vacía
+ 
+### express.js command-line interface
+ 
+> al instalar less, por ejemplo crea una carpeta llamada _express-less_ con un archivo de configuracion llamado _app.js_ 
+ 
+> dentro de _app.js_ tiene el siguiente código:
+```
+app.use('/', routes);
+app.use('/users', users);
+```
+el primero dirige hacia http://localhost:3000 y el segundo hacia http://localhost:3000/users. no es permitido rutas como www.webapp.com/?id=10233 o www.eabapp.com/about/?author=10239. para esto hay que setearlo asi en el _app.js_
+```
+app.use(function (req,res,next) {
+  if (req.query.id) {
+    // process the id, then call next() when done
+    else if (req.query.author) {
+      // same approach as with id
+      } else if (req.query.id && req.query.ref) {
+      // process when id and ref present
+      } else {
+        next();
+      }
+  }
+});
+app.get('/about', function (req, res, next){
+  // this code is executed after the query string middleware
+});
+```
+
+### HELLo wordl !
+
+
+
+
+
+
