@@ -3,19 +3,14 @@ p= msg
 
 script(type='text/javascript').
 	console.log('que pasa con jade + mustache?')
-
-	var sys = require('sys');
-	var mustache = require('mustache');
-
+	var sys = require('sys')
+	var mustache = require('mustache')
 	var view = {
 	  title: "Joe",
 	  calc: function() {
 	    return 2 + 4;
 	  }
-	};
-
-	var template = "{{title}} spends {{calc}}";
-
-	var html = mustache.to_html(template, view);
-
-	sys.puts(html); 
+	}
+	var template = "{{title}} spends {{calc}}"
+	var html = mustache.to_html(template, view)
+	sys.puts(html);
