@@ -23,6 +23,32 @@ make link
 ```
 npm install -g node-inspector
 ```
+4.- install express.js generator
+```
+npm install -g express-generator@4.0.0
+```
+5.- instalar modulo de instalación del express.js
+> en la carpeta donde se desea instalar hay que crear un json de configuración que detalle las dependencias, en este caso sólo express versión 4.1.2.
+```
+{
+  "name": "express-cli",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "express": "~4.1.2"
+  }
+}
+```
+> correr comenado de instalación
+```
+npm install
+```
 
 
 # CH1
@@ -37,3 +63,13 @@ y en otra:
 node --debug hola-debug.js  
 ```
 > para ver el **node inspector** en el chrome hay que **cambiar la ip** que entrega la consola http://127.0.0.1:8080/debug?port=5858 por la ip del vps, en mi caso http://178.62.215.128:8080/debug?port=5858
+
+# CH2
+
+### Express.js Installation
+> hay que ver la disponibilidad de express consultando su version (con V mayúscula, al contrario de node y npm que son con v minúscula)
+> hay que instalar el generator de manera global y el modulo local de express !
+```
+express -v
+```
+
