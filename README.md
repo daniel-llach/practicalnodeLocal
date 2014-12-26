@@ -49,7 +49,17 @@ npm install -g express-generator@4.0.0
 ```
 npm install
 ```
+
 6.- scaffolding (instalar más cosas desde express)
+> instalar less
+```
+express -c less expres-less
+cd expres-less && npm install
+```
+> PARA DEBUGUEAR LA APP
+```
+DEBUG=my-application ./bin/www
+```
 
 
 
@@ -78,8 +88,8 @@ express -v
 ```
 express -h
 ```
-las opciones que da son 
- · -e | engine support, por defecto jade - http://jade-lang.com/tutorial/
- · -H | hogan.js
- · -c | css engine, less, stylus o compass, por defecto css plano
- · -f | fuerza app generation en una carpeta no vacía
+las opciones que da son:
+ 1. -e | engine support, por defecto jade - http://jade-lang.com/tutorial/
+ 2. -H | hogan.js
+ 3. -c | css engine, less, stylus o compass, por defecto css plano
+ 4. -f | fuerza app generation en una carpeta no vacía
