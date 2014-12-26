@@ -45,10 +45,12 @@ npm install -g express-generator@4.0.0
   }
 }
 ```
-> correr comenado de instalación
+> correr comando de instalación
 ```
 npm install
 ```
+6.- scaffolding (instalar más cosas desde express)
+
 
 
 # CH1
@@ -72,4 +74,12 @@ node --debug hola-debug.js
 ```
 express -v
 ```
-
+> una vez instalado el package.json se puede ver las opciones de scaffolding de express con:
+```
+express -h
+```
+las opciones que da son 
+ · -e | engine support, por defecto jade - http://jade-lang.com/tutorial/
+ · -H | hogan.js
+ · -c | css engine, less, stylus o compass, por defecto css plano
+ · -f | fuerza app generation en una carpeta no vacía
