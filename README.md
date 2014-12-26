@@ -27,7 +27,7 @@ npm install -g node-inspector
 
 # CH1
 
-## VPS - en ejercicio hola-debug
+### VPS - en ejercicio hola-debug
 > una consola correr: 
 ```
 node-inspector 
