@@ -94,6 +94,11 @@ npm install
 h1 Hola
 p= msg
 ```
+luego visualizar (en la carpeta principal, donde esta el archivo) con:
+```
+node app.js
+````
+
 
 # CH1
 
