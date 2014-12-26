@@ -89,7 +89,11 @@ npm install
 ```
 
 7.- jade !
-
+> crear un la carpeta views un archivo index.jade con lo siguiente:
+```
+h1 Hola
+p= msg
+```
 
 # CH1
 
