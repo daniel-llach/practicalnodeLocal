@@ -117,6 +117,48 @@ luego visualizar (en la carpeta principal, donde esta el archivo) con:
 node app.js
 ````
 
+(TESTING - OPTIONAL)
+8.- mocha (TDD & BDD - test-driven development & behavior-driven development)
+> installar mocha (global)
+```
+sudo npm install -g mocha@1.16.2
+````
+
+> para correr un test hay que hacer por ejemplo un archivo llamado test.js con lo siguiente:
+```
+var assert = require('assert');
+var expected, current;
+before(function(){
+  expected = ['a', 'b', 'c'];
+})
+describe('String#split', function(){
+  beforeEach(function(){
+    current = 'a,b,c'.split(',');
+  })
+  it('should return an array', function(){
+    assert(Array.isArray(current));
+  });
+  it('Should return the same array', function(){
+    assert.equal(expected.length, current.length, 'arrays have equal length');
+    for (var i=0; i<expected.length; i++) {
+      assert.equal(expected[i], current[i], i + 'element is equal');
+    }
+  })
+})
+```
+
+(AUN TESTING - OPTIONAL)
+9.- install chai (TDD aun, para qa nuevamente)
+> la verdad me da lata hacer esto.. quizas más adelante lo incluya en mis notas
+
+(AUN TESTING - OPTIONAL)
+10.- install expect.js
+> me lo salto también
+
+
+
+
+
 
 # CH1
 
@@ -180,6 +222,16 @@ app.get('/about', function (req, res, next){
 ### HELLo wordl !
 
 > si luego de hacer el package.json y correr _npm install_ se crea app.js del ejemplo y va correr, pero si uno lo visualiza en el navegador aparece un error: **Failed to lookup view "index" in views directory "/home/practicalnode/ch2/hello-world/views"**  esto es normal ya que hay que definir las vistas aun (paso 7)
+
+# CH3
+
+### test-example
+> Aqui se corta el hilo del libro, el tdd y bdd rompieron el flujo... por ahora me lo salto... quizas más adelante vea su importancia :v
+
+#CH4
+
+
+
 
 
 
