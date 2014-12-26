@@ -66,6 +66,29 @@ SETEAR carpetas del proyecto:
 ```
 mkdir {public,public/css,public/img,public/js,db,views,views/includes,routes}
 ```
+6-B hacer package.json con dependencias necesarias, como este ejemplo:
+```
+{
+  "name": "hello-world",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.1.2",
+    "jade": "1.3.1",
+    "mongoskin": "1.4.1",
+    "stylus": "0.44.0"
+  }
+}
+```
+> luego correr el instalador:
+```
+npm install
+```
+
+7.- jade !
 
 
 # CH1
@@ -129,6 +152,7 @@ app.get('/about', function (req, res, next){
 
 ### HELLo wordl !
 
+> si luego de hacer el package.json y correr _npm install_ se crea app.js del ejemplo y va correr, pero si uno lo visualiza en el navegador aparece un error: **Failed to lookup view "index" in views directory "/home/practicalnode/ch2/hello-world/views"**  esto es normal ya que hay que definir las vistas aun (paso 7)
 
 
 
