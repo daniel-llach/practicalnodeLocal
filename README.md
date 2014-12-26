@@ -1,7 +1,7 @@
 practicalnodeLocal 
 ==================
 
-ejercicios libro practica node escrito por _Azat Mardan_, probando en vps **digital oceans**
+ejercicios libro practical node escrito por _Azat Mardan_, probando en vps _digital oceans_
 
 ### resumen pasos:
 1.- install node.js (en la vps sólo me resulto hacerlo desde github)
