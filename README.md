@@ -45,6 +45,24 @@ npm install -g express-generator@4.0.0
   }
 }
 ```
+> o ejemplo personal con less y mustache
+```
+{
+  "name": "hello-world",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.1.2",
+    "jade": "1.3.1",
+    "mongoskin": "1.4.1",
+    "less": "2.1.2",
+    "mustache": "1.0.0"
+  }
+}
+```
 > correr comando de instalación
 ```
 npm install
