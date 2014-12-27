@@ -231,8 +231,8 @@ app.get('/about', function (req, res, next){
 #CH4
 
 ### ejemplos de jade
-> Pasar valores de _variables locales_ (del back al front)
-```
+#### Pasar valores de _variables locales_ (del back al front)
+>```
 h1= title
 p= body
 ```
