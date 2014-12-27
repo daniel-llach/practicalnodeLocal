@@ -219,7 +219,7 @@ app.get('/about', function (req, res, next){
 });
 ```
 
-### HELLo wordl !
+### HELLo world !
 
 > si luego de hacer el package.json y correr _npm install_ se crea app.js del ejemplo y va correr, pero si uno lo visualiza en el navegador aparece un error: **Failed to lookup view "index" in views directory "/home/practicalnode/ch2/hello-world/views"**  esto es normal ya que hay que definir las vistas aun (paso 7)
 
@@ -230,10 +230,198 @@ app.get('/about', function (req, res, next){
 
 #CH4
 
+### ejemplos de jade
+> Pasar valores de _variables locales_ (del back al front)
+```
+h1= title
+p= body
+```
+output:
+```
+<h1>Express.js Guide</h1>
+<p>The cohomprensive book</p>
+```
 
+> Pasar variable local como atributo 
+```
+a(href=url, data-active=isActive)
+label
+  input(type="checkbox", checked=isChecked)
+  | yes / no
+```
+output:
+```
+<a href="/logout" data-active="data-active"></a>
+<label>
+  <input type="checkbox"/>yes / no
+</label>
+```
 
+> Id y clases pueden prescindir del tag div 
+```
+div#content
+  p.lead.center
+    | webapplog: whre code lives
+    #side-bar.pull-right
+    span.contact.span4
+      a(href="/contact") contact us
+```
 
+> scrip en el front (html)
+```
+script.
+  console.log('Hello Jade')
+  setTimeout(function(){
+    window.location.href='http://rpjs.co'
+  },200)
+  console.log('Godd bye!')
+```
 
+> script antes de compilar el jade se usa -,= o !=
+```
+- var arr = ['<a>','<b>','<c>']
+ul
+  - for (var i = 0; i< arr.length; i++)
+    li
+      span= i
+      span!="unescaped: " + arr[i] + " vs. "
+      span= "escaped: " + arr[i]
+```
+output:
+```
+<ul>
+  <li><span>0</span><span>unescaped: <a> vs. </span><span>escaped: &lt;a&agt;</span></li>
+  <li><span>1</span><span>unescaped: <b> vs. </span><span>escaped: &lt;b&agt;</span></li>
+  <li><span>2</span><span>unescaped: <c> vs. </span><span>escaped: &lt;c&agt;</span></li>
+</ul>
+```
 
+> comentarios:
+```
+// aparecen en el html asi <!-- comentario -->
+//- aparecen solo antes de compilar, no en el html
+```
 
+> if
+```
+- var user = {}
+- user.admin 0 Math.random()>0.5
+if user.admin
+  buttons(class="launch") Laun Spacecraft
+else
+  button(class="login") Log in
+```
 
+> each para arreglos
+```
+- var languages = ['php', 'node', 'ruby']
+div
+  each value, index in languages
+    p= index + ". " + value
+```
+
+> each para objetos
+```
+- var languages = {'php': -1, 'node': 2, 'ruby':1}
+div
+  each value, key in languages
+    p= key + ": " + value
+```
+output:
+```
+<div>
+  <p>php: -1</p>
+  <p>node: 2</p>
+  <p>ruby: 1</p>
+</div>
+
+> filtros, permiten escribir un trozo del código en otro lenguaje de programación, el siguiente es el ejemplo de la pagina de jade, no del libro. Esto se debe hacer sólo en el back y hay que instalar el lenguaje en node_modules para que lo reconozca
+```
+script
+  :coffee
+    console.log 'This is coffee script'
+```
+
+> interpolación. permite escribir una variable del back en un trozo de html (no javascript) para que se renderice en el front
+```
+- var title = "Express.js guide"
+p Read the #{title} in PDF, MOBI and EPUB
+```
+
+> Case
+```
+- var coins = Math.round(Math.random()*10)
+case coins
+  when 0
+    p You have no money
+  when 1
+    p You have a coin
+  default
+    p You have #{coins} coins!
+```
+
+> Mixin, produce html en relacion a algunos parametros
+```
+mixin row(items)
+  tr
+    each item, index in items
+      td= item
+mixin table(tableData)
+  table
+    each row, index in tableData
+      +row(row)
+- var node = [{name: "express"}, {name: "hapi"}, {name: "derby"}]
++table(node)
+- var js = [{name: "backbone"}, {name: "angular"}, {name: "ember"}]
++table(js)
+```
+output:
+```
+<table>
+  <tr>
+    <td>express</td>
+  <tr>
+  <tr>
+    <td>hapi</td>
+  <tr>
+  <tr>
+    <td>derby</td>
+  <tr>
+</table>
+<table>
+  <tr>
+    <td>backbone</td>
+  <tr>
+  <tr>
+    <td>angular</td>
+  <tr>
+  <tr>
+    <td>ember</td>
+  <tr>
+</table>
+```
+
+> Include, tome otro archivo y lo incluye... compila el archivo y luego lo agrega. top-to-bottom aproach
+```
+include ./includes/header
+include ../includes/footer
+```
+
+> Extend. bottom-to-top aproach
+En archivo A:
+```
+block header
+  p some default text
+block content
+  p Loading ...
+block footer
+  p copyright
+```
+En archivo B:
+```
+extend file_a
+block header
+  p very specific text
+block content
+  .main-content
+```
