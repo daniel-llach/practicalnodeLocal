@@ -231,7 +231,7 @@ app.get('/about', function (req, res, next){
 #CH4
 
 ### ejemplos de jade
-#### Pasar valores de _variables locales_ (del back al front)
+##### Pasar valores de _variables locales_ (del back al front)
 >```
 h1= title
 p= body
@@ -242,8 +242,8 @@ output:
 <p>The cohomprensive book</p>
 ```
 
-> Pasar variable local como atributo 
-```
+#####  Pasar variable local como atributo 
+>```
 a(href=url, data-active=isActive)
 label
   input(type="checkbox", checked=isChecked)
@@ -257,8 +257,8 @@ output:
 </label>
 ```
 
-> Id y clases pueden prescindir del tag div 
-```
+##### Id y clases pueden prescindir del tag div 
+>```
 div#content
   p.lead.center
     | webapplog: whre code lives
@@ -267,8 +267,8 @@ div#content
       a(href="/contact") contact us
 ```
 
-> scrip en el front (html)
-```
+##### scrip en el front (html)
+>```
 script.
   console.log('Hello Jade')
   setTimeout(function(){
@@ -277,8 +277,8 @@ script.
   console.log('Godd bye!')
 ```
 
-> script antes de compilar el jade se usa -,= o !=
-```
+##### script antes de compilar el jade se usa -,= o !=
+>```
 - var arr = ['<a>','<b>','<c>']
 ul
   - for (var i = 0; i< arr.length; i++)
@@ -296,14 +296,14 @@ output:
 </ul>
 ```
 
-> comentarios:
-```
+##### comentarios:
+>```
 // aparecen en el html asi <!-- comentario -->
 //- aparecen solo antes de compilar, no en el html
 ```
 
-> if
-```
+##### if
+>```
 - var user = {}
 - user.admin 0 Math.random()>0.5
 if user.admin
@@ -312,16 +312,16 @@ else
   button(class="login") Log in
 ```
 
-> each para arreglos
-```
+##### each para arreglos
+>```
 - var languages = ['php', 'node', 'ruby']
 div
   each value, index in languages
     p= index + ". " + value
 ```
 
-> each para objetos
-```
+##### each para objetos
+>```
 - var languages = {'php': -1, 'node': 2, 'ruby':1}
 div
   each value, key in languages
@@ -335,21 +335,21 @@ output:
   <p>ruby: 1</p>
 </div>
 
-> filtros, permiten escribir un trozo del código en otro lenguaje de programación, el siguiente es el ejemplo de la pagina de jade, no del libro. Esto se debe hacer sólo en el back y hay que instalar el lenguaje en node_modules para que lo reconozca
-```
+##### filtros, permiten escribir un trozo del código en otro lenguaje de programación, el siguiente es el ejemplo de la pagina de jade, no del libro. Esto se debe hacer sólo en el back y hay que instalar el lenguaje en node_modules para que lo reconozca
+>```
 script
   :coffee
     console.log 'This is coffee script'
 ```
 
-> interpolación. permite escribir una variable del back en un trozo de html (no javascript) para que se renderice en el front
-```
+##### interpolación. permite escribir una variable del back en un trozo de html (no javascript) para que se renderice en el front
+>```
 - var title = "Express.js guide"
 p Read the #{title} in PDF, MOBI and EPUB
 ```
 
-> Case
-```
+##### Case
+>```
 - var coins = Math.round(Math.random()*10)
 case coins
   when 0
@@ -360,8 +360,8 @@ case coins
     p You have #{coins} coins!
 ```
 
-> Mixin, produce html en relacion a algunos parametros
-```
+##### Mixin, produce html en relacion a algunos parametros
+>```
 mixin row(items)
   tr
     each item, index in items
@@ -401,14 +401,14 @@ output:
 </table>
 ```
 
-> Include, tome otro archivo y lo incluye... compila el archivo y luego lo agrega. top-to-bottom aproach
-```
+##### Include, tome otro archivo y lo incluye... compila el archivo y luego lo agrega. top-to-bottom aproach
+>```
 include ./includes/header
 include ../includes/footer
 ```
 
-> Extend. bottom-to-top aproach
-En archivo A:
+##### Extend. bottom-to-top aproach
+>En archivo A:
 ```
 block header
   p some default text
