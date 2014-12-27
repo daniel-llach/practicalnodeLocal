@@ -425,3 +425,5 @@ block header
 block content
   .main-content
 ```
+
+### NO INCLUÍ HANDLEBARS YA QUE NO LO VOY A USAR, PREFIERI JADE
