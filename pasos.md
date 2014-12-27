@@ -116,7 +116,7 @@ html
             a(href="https://github.com/azat-co/blog-express/issues") GitHub
             | .
 ```
-y ejemplo de index.jade (en carpeta _views_)
+Y ejemplo de index.jade (en carpeta _views_)
 En este ejemplo se usa el layout.jade como template del contenido del index.jade que vendría siendo el home de la app web
 ```
 extends layout
@@ -134,6 +134,13 @@ block content
           a(href="/articles/#{article.slug}")= article.title
 ```
 
-### 8.- Colocar assets del front (declarados en layout.jade)
-estos se colocan en _/public/css/_ y _/public/js/_ respectivamente
+### 9.- Colocar assets del front (declarados en layout.jade)
+Estos se colocan en _/public/css/_ y _/public/js/_ respectivamente
 
+### 10.- Visualizar avance 
+se ejecuta la app y luego se puede visualizar en el navegador respetando el puerto de salida. Ej: Express server listening on port 3000, seria localmente http://localhost:3000 y en el vps con la ip de este, ej: http://http://178.62.215.128:3000
+>```
+node app.js
+```
+
+### Mongo db ...
