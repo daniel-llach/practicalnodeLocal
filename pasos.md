@@ -143,4 +143,21 @@ se ejecuta la app y luego se puede visualizar en el navegador respetando el puer
 node app.js
 ```
 
-### Mongo db ...
+### 11.- Instalar MongoDB
+Seguir instrucciones de _http://docs.mongodb.org/manual/installation_ Si no se sabe la arquitectura de la máquina se puede saber de la siguiente manera:
+>```
+uname -p
+```
+instala en _/usr/bin/mongod_, por lo que hay que correr mongo de la siguiente manera:
+```
+/usr/bin/mongod
+```
+si da error: _BadValue Invalid or no user locale set. Please ensure LANG and/or LC * environment variables are set correctly_. Hay que ejecutar lo siguiente:
+```
+export LC_ALL=C
+```
+si da este otro error: _ERROR: dbpath (/data/db) does not exist._ entonces hay que crear la carpeta indicada con:
+```
+sudo mkdir -p /data/db/
+```
+esta correcto cuando aparece el mensaje _**waiting for connections on port 27017**_
