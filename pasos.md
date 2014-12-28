@@ -161,3 +161,26 @@ si da este otro error: _ERROR: dbpath (/data/db) does not exist._ entonces hay q
 sudo mkdir -p /data/db/
 ```
 esta correcto cuando aparece el mensaje _**waiting for connections on port 27017**_
+
+### 12.- testear MONGODB
+Hay que correr en una ventana el comando _mongod_ para inicializar el servicio y luego en otra ventana hay que inicializar la shell de mongo de la siguiente manera:
+```
+/usr/bin/mongo
+```
+si esta todo ok debería aparecer en la consola _MongoDB shell version: 2.6.6 ..._ 
+*puede dar el mismo error _BadValue Invalid or no user locale set._ que se soluciona igual que el anterior.
+
+### 13.- Instalar el modulo nativo de mongodb para node.js
+>```
+npm install mongodb // or mongodb@1.3.23
+```
+no hay que olvidar incluirlo (¿o que se puede incluir tb?) en las dependencias del package.json
+```
+{
+  "name": "node-example",
+  ...
+  "dependencies": {
+    "mongodb":"1.3.23"
+  }
+}
+```
