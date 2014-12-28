@@ -184,3 +184,15 @@ no hay que olvidar incluirlo (¿o que se puede incluir tb?) en las dependencias 
   }
 }
 ```
+
+### 14.- crear archivo _db/seed.sh_ con instrucciones para importar datos a la db desde json, en este caso de _users.json_ y _articles.json_
+>```
+mongoimport --db blog --collection users --file ./db/users.json -jsonArray
+mongoimport --db blog --collection articles --file ./db/articles.json -jsonArray
+```
+
+### 15.- Poblar base de datos ejecutando archivo seed.sh por consola:
+>```
+./db/seed.sh
+```
+
