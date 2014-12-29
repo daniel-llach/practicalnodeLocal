@@ -223,4 +223,5 @@ luego de inicializar _mongoDB_  ejecutar:
 ```
 make start
 ```
-Y después correr el _app.js_
+Con esta opción no hay que correr el _app.js_ ya que se ejecuta desde el makefile
+
