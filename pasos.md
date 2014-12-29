@@ -198,3 +198,29 @@ mongoimport --db blog --collection articles --file ./db/articles.json -jsonArray
 
 ### 16.- Autentificación.
 >Generar sistema de password de sesión ( _express-session_ ) o utilizar API de loguin de twitter, facebook, etc con _everyauth_.
+Se recomienda colocar la información de las credenciales de twitter u otro en archivo _makefile_, asi queda guardado en la base de datos, aqui un ejemplo de makefile:
+```
+REPORTER = list
+MOCHA_OPTS = --ui bdd -c
+db:
+	echo Seeding blog-test *****************************************************
+	./db/seed.sh
+test:
+	clear
+	echo Starting test *********************************************************
+	./node_modules/mocha/bin/mocha \
+	--reporter $(REPORTER) \
+	$(MOCHA_OPTS) \
+	tests/*.js
+	echo Ending test
+start:
+	TWITTER_CONSUMER_KEY=AAAAAAAAAAAAAAAAAAAAA \
+	TWITTER_CONSUMER_SECRET=BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB \
+	node  app
+.PHONY: test db start
+```
+luego de inicializar _mongoDB_  ejecutar:
+```
+make start
+```
+Y después correr el _app.js_
