@@ -196,3 +196,5 @@ mongoimport --db blog --collection articles --file ./db/articles.json -jsonArray
 ./db/seed.sh
 ```
 
+### 16.- Autentificación.
+>Generar sistema de password de sesión ( _express-session_ ) o utilizar API de loguin de twitter, facebook, etc con _everyauth_.
