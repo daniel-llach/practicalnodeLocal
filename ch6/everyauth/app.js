@@ -25,20 +25,11 @@ var session = require('express-session'),
 
 everyauth.debug = true;
 everyauth.twitter
-  .consumerKey(TWITTER_CONSUMER_KEY)
-  .consumerSecret(TWITTER_CONSUMER_SECRET)
-  .findOrCreateUser( function (session, accessToken, accessTokenSecret, twitterUserMetadata) {
-    var promise = this.Promise();
-    process.nextTick(function(){
-        if (twitterUserMetadata.screen_name === 'azat_co') {
-          session.user = twitterUserMetadata;
-          session.admin = true;
-        }
-        promise.fulfill(twitterUserMetadata);
+    .consumerKey(conf.twit.consumerKey)
+    .consumerSecret(conf.twit.consumerSecret)
+    .findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
+      return usersByTwitId[twitUser.id] || (usersByTwitId[twitUser.id] = addUser('twitter', twitUser));
     })
-    return promise;
-    // return twitterUserMetadata
-  })
   .redirectPath('/admin');
 
 //we need it because otherwise the session will be kept alive
